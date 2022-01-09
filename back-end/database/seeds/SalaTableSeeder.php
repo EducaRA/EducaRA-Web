@@ -13,6 +13,6 @@ class SalaTableSeeder extends Seeder
     public function run()
     {
         Sala::truncate();
-        factory(Sala::class, 30)->make();
+        Sala::factory()->count(30)->make();
     }
 }

@@ -13,6 +13,6 @@ class DisciplinaTableSeeder extends Seeder
     public function run()
     {
         Disciplina::truncate();
-        factory(Disciplina::class, 30)->make();
+        Disciplina::factory()->count(30)->make();
     }
 }
