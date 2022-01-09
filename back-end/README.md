@@ -2,7 +2,10 @@
 Educara Web - Realidade Aumentada no Ensino Médio - [BACK-END]
 
 # Project setup
-Projeto requer PHP > 7.2, composer e banco de dados Mysql.
+
+Projeto requer PHP >= 8.0, composer e banco de dados Mysql.
+Verifique todos os requisitos, dependências, e extensões do php para o laravel.
+Um bom caminho é criar um projeto em branco com o composer e verificar se tudo funciona.
 
 Instalar e seguir os seguintes comandos
 
