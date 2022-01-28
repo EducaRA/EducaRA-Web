@@ -1,9 +1,9 @@
 <?php
 
-use App\Models\Objeto;
+use App\Models\Participa;
 use Illuminate\Database\Seeder;
 
-class ObjetoTableSeeder extends Seeder
+class ParticipaTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,7 +12,7 @@ class ObjetoTableSeeder extends Seeder
      */
     public function run()
     {
-        Objeto::truncate();
-        Objeto::factory()->count(30)->make();
+        Participa::truncate();
+        Participa::factory()->times(30)->create();
     }
 }

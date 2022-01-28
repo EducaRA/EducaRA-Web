@@ -1,9 +1,9 @@
 <?php
 
-use App\Models\Sala;
+use App\Models\Objeto;
 use Illuminate\Database\Seeder;
 
-class SalaTableSeeder extends Seeder
+class ObjetoTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,7 +12,7 @@ class SalaTableSeeder extends Seeder
      */
     public function run()
     {
-        Sala::truncate();
-        Sala::factory()->count(30)->make();
+        Objeto::truncate();
+        Objeto::factory()->times(30)->create();
     }
 }

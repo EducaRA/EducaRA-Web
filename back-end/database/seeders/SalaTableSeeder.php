@@ -1,9 +1,9 @@
 <?php
 
-use App\Models\Participa;
+use App\Models\Sala;
 use Illuminate\Database\Seeder;
 
-class ParticipaTableSeeder extends Seeder
+class SalaTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,7 +12,7 @@ class ParticipaTableSeeder extends Seeder
      */
     public function run()
     {
-        Participa::truncate();
-        Participa::factory()->count(200)->make();
+        Sala::truncate();
+        Sala::factory()->times(30)->create();
     }
 }

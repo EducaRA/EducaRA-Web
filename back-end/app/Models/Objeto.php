@@ -2,13 +2,16 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Objeto extends Model
 {
     use SoftDeletes;
-    
+    use HasFactory;
+
+
     protected $table = 'objetos';
     protected $fillable = [
         'nome', 'descricao', 'filehash', 'size', 'extension','path'
