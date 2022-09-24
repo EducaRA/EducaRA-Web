@@ -5,7 +5,7 @@ namespace App\Http\Controllers\API;
 use Illuminate\Http\Request;
 use App\Http\Controllers\API\BaseController as BaseController;
 use App\Models\Room;
-use Illuminate\Validation\Validator;
+use Validator;
 use App\Http\Resources\RoomResource;
      
 class RoomController extends BaseController
