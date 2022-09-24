@@ -41,4 +41,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function roomsOwner()
+    {
+        return $this->HasOne(Room::class, 'owner', 'id');
+    }
+
+    public function roomsParticipant()
+    {
+        return $this->belongsToMany(Room::class, 'participate', 'participant_id', 'room_id');
+    }
 }

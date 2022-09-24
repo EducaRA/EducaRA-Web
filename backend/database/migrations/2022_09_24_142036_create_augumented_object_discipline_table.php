@@ -13,14 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('augumented_objects', function (Blueprint $table) {
+        Schema::create('augumented_object_discipline', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('description');
-            $table->string('size');
-            $table->string('extension');
-            $table->string('url_download');
-
             $table->timestamps();
         });
     }
@@ -32,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('augumented_objects');
+        Schema::dropIfExists('augumented_object_discipline');
     }
 };
