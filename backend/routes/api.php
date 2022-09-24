@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\API\
@@ -34,4 +33,5 @@ Route::middleware('auth:api')->group(function () {
    ]);
 
    Route::get('augumented_objects/{augumented_object}/download', [AugumentedObjectController::class, 'download'])->name('augumented_objects.download');
+
 });
