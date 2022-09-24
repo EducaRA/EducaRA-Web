@@ -18,6 +18,8 @@ class AugumentedObjectResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'description' => $this->description,
+            'size' => $this->size,
+            'extension' => $this->extension,
             'url_download' => $this->url_download,
             'created_at' => $this->created_at->format('d/m/Y'),
             'updated_at' => $this->updated_at->format('d/m/Y'),

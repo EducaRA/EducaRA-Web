@@ -10,6 +10,6 @@ class AugumentedObject extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'description', 'url_download' 
+        'name', 'description','size', 'extension', 'url_download' 
     ];
 }
