@@ -117,7 +117,7 @@ class AugmentedObjectController extends BaseController
     public function destroy(AugmentedObject $augmentedObject)
     {
 
-        if (File::deleteDirectory(storage_path('app/files/objeto/') . $augmentedObject->id)){
+        if (File::deleteDirectory(storage_path('app/objetos/') . $augmentedObject->id)){
             $augmentedObject->delete();
             return $this->sendResponse([], 'AugmentedObject deleted successfully.');
 
@@ -129,8 +129,8 @@ class AugmentedObjectController extends BaseController
     public function download(AugmentedObject $augmentedObject)
     {
         // Check if file exists in app/storage/file folder
-
-        $file_path = storage_path('app/files/') . $augmentedObject->path;
+        
+        $file_path = storage_path('app/objetos/'.$augmentedObject->id.'/'.$augmentedObject->path);
         return response()->download($file_path);
     }
 }
