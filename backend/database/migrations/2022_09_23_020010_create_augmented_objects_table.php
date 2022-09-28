@@ -13,13 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('augumented_objects', function (Blueprint $table) {
+        Schema::create('augmented_objects', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('description');
-            $table->string('size');
-            $table->string('extension');
-            $table->string('url_download');
+            $table->string('description')->nullable();
+            $table->string('filehash')->nullable();
+            $table->string('path')->nullable();
+            $table->integer('size')->default(0);
+            $table->string('extension')->nullable();
 
             $table->timestamps();
         });
@@ -32,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('augumented_objects');
+        Schema::dropIfExists('augmented_objects');
     }
 };

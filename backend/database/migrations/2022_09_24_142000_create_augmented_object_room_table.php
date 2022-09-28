@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('augumented_object_room', function (Blueprint $table) {
+        Schema::create('augmented_object_room', function (Blueprint $table) {
             $table->unsignedBigInteger('room_id');
-            $table->unsignedBigInteger('augumented_object_id');
+            $table->unsignedBigInteger('augmented_object_id');
             $table->string('code');
             $table->foreign('room_id')->references('id')->on('rooms');
-            $table->foreign('augumented_object_id')->references('id')->on('augumented_objects');
+            $table->foreign('augmented_object_id')->references('id')->on('augmented_objects');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('augumented_object_room');
+        Schema::dropIfExists('augmented_object_room');
     }
 };

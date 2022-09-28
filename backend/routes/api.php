@@ -6,7 +6,7 @@ use App\Http\Controllers\API\
 {
    RegisterController,
    DisciplineController,
-   AugumentedObjectController,
+   AugmentedObjectController,
    RoomController
 };
 
@@ -28,10 +28,10 @@ Route::middleware('auth:api')->group(function () {
 
    Route::apiResources([
       'disciplines' => DisciplineController::class,
-      'augumented_objects' => AugumentedObjectController::class,
+      'augmented_objects' => AugmentedObjectController::class,
       'rooms' => RoomController::class,
    ]);
 
-   Route::get('augumented_objects/{augumented_object}/download', [AugumentedObjectController::class, 'download'])->name('augumented_objects.download');
+   Route::get('augmented_objects/{augmented_object}/download', [AugmentedObjectController::class, 'download'])->name('augmented_objects.download');
 
 });

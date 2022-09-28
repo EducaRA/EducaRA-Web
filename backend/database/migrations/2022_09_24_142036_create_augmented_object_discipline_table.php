@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('augumented_object_discipline', function (Blueprint $table) {
+        Schema::create('augmented_object_discipline', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('augumented_object_discipline');
+        Schema::dropIfExists('augmented_object_discipline');
     }
 };

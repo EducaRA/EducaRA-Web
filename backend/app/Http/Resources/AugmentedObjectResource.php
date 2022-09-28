@@ -4,7 +4,7 @@ namespace App\Http\Resources;
   
 use Illuminate\Http\Resources\Json\JsonResource;
   
-class AugumentedObjectResource extends JsonResource
+class AugmentedObjectResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -20,7 +20,7 @@ class AugumentedObjectResource extends JsonResource
             'description' => $this->description,
             'size' => $this->size,
             'extension' => $this->extension,
-            'url_download' => $this->url_download,
+            'path' => $this->path,
             'created_at' => $this->created_at->format('d/m/Y'),
             'updated_at' => $this->updated_at->format('d/m/Y'),
         ];

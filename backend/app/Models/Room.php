@@ -17,8 +17,8 @@ class Room extends Model
     ];
 
     //Muitas salas pertencem a um ou muitos objetos (N,N)
-    public function augumentedObjects(){
-        return $this->BelongsToMany(AugumentedObject::class);
+    public function augmentedObjects(){
+        return $this->BelongsToMany(AugmentedObject::class);
     }
 
     // uma sala pertencem a apenas uma disciplina obrigatória
