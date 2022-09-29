@@ -48,10 +48,11 @@ class AugmentedObjectController extends BaseController
         $augmentedObject->filehash=hash_file('md5', $request->ar_file);
         $augmentedObject->size = $request->ar_file->getSize();
         $augmentedObject->extension = $request->ar_file->getClientOriginalExtension();
-        $augmentedObject->path = $request->ar_file->storeAs('objetos/' . $augmentedObject->id, $augmentedObject->filehash.'.'. $augmentedObject->extension);
+        $augmentedObject->path = $augmentedObject->filehash.'.'.$augmentedObject->extension;
+        $request->ar_file->storeAs('objetos/' . $augmentedObject->id, $augmentedObject->filehash.'.'. $augmentedObject->extension);
         $augmentedObject->save();
 
-     
+
         return $this->sendResponse(new AugmentedObjectResource($augmentedObject), 'AugmentedObject created successfully.');
     } 
    
@@ -130,7 +131,7 @@ class AugmentedObjectController extends BaseController
     {
         // Check if file exists in app/storage/file folder
         
-        $file_path = storage_path('app/objetos/'.$augmentedObject->id.'/'.$augmentedObject->path);
+        $file_path = storage_path('app/objetos/'.$augmentedObject->id.'/'.$augmentedObject->filehash.'.'.$augmentedObject->extension);
         return response()->download($file_path);
     }
 }

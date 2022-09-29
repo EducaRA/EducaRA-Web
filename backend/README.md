@@ -75,7 +75,7 @@ Via linha de comando:
 
 Iniciar o servidor (Server for development)
 
-     php artisan serve
+    php artisan serve
 
 Acessar via POST http://127.0.0.1:8000/api/login enviando as credenciais:
 
