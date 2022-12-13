@@ -39,8 +39,9 @@ class Objeto3dController extends BaseController
         $input = $request->except('ar_file');
 
         $validator = Validator::make($input, [
-            'name' => 'required',
-            'description' => 'required'
+            'nome' => 'required',
+            'descricao' => 'required',
+            'escala' => 'required'
         ]);
 
         if ($validator->fails()) {

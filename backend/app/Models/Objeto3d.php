@@ -11,6 +11,6 @@ class Objeto3d extends Model
     protected $table = 'objetos_3d';
 
     protected $fillable = [
-        'nome', 'descricao','size', 'extension', 'path' 
+        'nome', 'descricao', 'size', 'extension', 'path', 'escala'
     ];
 }
