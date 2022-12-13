@@ -5,11 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class AugmentedObject extends Model
+class Objeto3d extends Model
 {
     use HasFactory;
+    protected $table = 'objetos_3d';
 
     protected $fillable = [
-        'name', 'description','size', 'extension', 'path' 
+        'nome', 'descricao','size', 'extension', 'path' 
     ];
 }

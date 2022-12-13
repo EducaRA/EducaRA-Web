@@ -4,11 +4,11 @@ namespace App\Http\Controllers\API;
      
 use Illuminate\Http\Request;
 use App\Http\Controllers\API\BaseController as BaseController;
-use App\Models\Room;
+use App\Models\Disciplina;
 use Validator;
-use App\Http\Resources\RoomResource;
+use App\Http\Resources\DisciplinaResource;
      
-class RoomController extends BaseController
+class DisciplinaController extends BaseController
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +17,9 @@ class RoomController extends BaseController
      */
     public function index()
     {
-        $rooms = Room::all();
+        $disciplinas = Disciplina::all();
       
-        return $this->sendResponse(RoomResource::collection($rooms), 'Rooms retrieved successfully.');
+        return $this->sendResponse(DisciplinaResource::collection($disciplinas), 'Disciplinas retrieved successfully.');
     }
     /**
      * Store a newly created resource in storage.
@@ -32,17 +32,17 @@ class RoomController extends BaseController
         $input = $request->all();
      
         $validator = Validator::make($input, [
-            'code' => 'required',
-            'owner' => 'required'
+            'name' => 'required',
+            'initial' => 'required'
         ]);
      
         if($validator->fails()){
             return $this->sendError('Validation Error.', $validator->errors());       
         }
      
-        $room = Room::create($input);
+        $disciplina = Disciplina::create($input);
      
-        return $this->sendResponse(new RoomResource($room), 'Room created successfully.');
+        return $this->sendResponse(new DisciplinaResource($disciplina), 'Disciplina created successfully.');
     } 
    
     /**
@@ -53,13 +53,13 @@ class RoomController extends BaseController
      */
     public function show($id)
     {
-        $room = Room::find($id);
+        $disciplina = Disciplina::find($id);
     
-        if (is_null($room)) {
-            return $this->sendError('Room not found.');
+        if (is_null($disciplina)) {
+            return $this->sendError('Disciplina not found.');
         }
      
-        return $this->sendResponse(new RoomResource($room), 'Room retrieved successfully.');
+        return $this->sendResponse(new DisciplinaResource($disciplina), 'Disciplina retrieved successfully.');
     }
     
     /**
@@ -69,25 +69,24 @@ class RoomController extends BaseController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Room $room)
+    public function update(Request $request, Disciplina $disciplina)
     {
         $input = $request->all();
      
         $validator = Validator::make($input, [
-            'code' => 'required',
-            'owner' => 'required'
+            'name' => 'required',
+            'initial' => 'required'
         ]);
      
         if($validator->fails()){
             return $this->sendError('Validation Error.', $validator->errors());       
         }
      
-        $room->code = $input['code'];
-        $room->owner = $input['owner'];
-        $room->name = $input['name'];
-        $room->save();
+        $disciplina->name = $input['name'];
+        $disciplina->initial = $input['initial'];
+        $disciplina->save();
      
-        return $this->sendResponse(new RoomResource($room), 'Room updated successfully.');
+        return $this->sendResponse(new DisciplinaResource($disciplina), 'Disciplina updated successfully.');
     }
    
     /**
@@ -96,10 +95,10 @@ class RoomController extends BaseController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Room $room)
+    public function destroy(Disciplina $disciplina)
     {
-        $room->delete();
+        $disciplina->delete();
      
-        return $this->sendResponse([], 'Room deleted successfully.');
+        return $this->sendResponse([], 'Disciplina deleted successfully.');
     }
 }

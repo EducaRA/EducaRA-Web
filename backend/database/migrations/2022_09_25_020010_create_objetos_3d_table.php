@@ -13,14 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('augmented_objects', function (Blueprint $table) {
+        Schema::create('objetos_3d', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('description')->nullable();
+            $table->string('nome');
+            $table->string('descricao')->nullable();
+            $table->string('imagem')->nullable();
             $table->string('filehash')->nullable();
             $table->string('path')->nullable();
             $table->integer('size')->default(0);
             $table->string('extension')->nullable();
+            $table->unsignedBigInteger('aula_id');
+            $table->foreign('aula_id')->references('id')->on('aulas');
 
             $table->timestamps();
         });
@@ -33,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('augmented_objects');
+        Schema::dropIfExists('objetos_3d');
     }
 };

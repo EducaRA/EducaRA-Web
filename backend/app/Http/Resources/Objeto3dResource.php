@@ -4,7 +4,7 @@ namespace App\Http\Resources;
   
 use Illuminate\Http\Resources\Json\JsonResource;
   
-class RoomResource extends JsonResource
+class Objeto3dResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,11 +16,13 @@ class RoomResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'code' => $this->code,
-            'name' => $this->name,
-            'owner' => $this->initial,
-            'created_at' => $this->created_at->format('d/m/Y'),
-            'updated_at' => $this->updated_at->format('d/m/Y'),
+            'nome' => $this->nome,
+            'descricao' => $this->descricao,
+            'size' => $this->size,
+            'extension' => $this->extension,
+            'path' => $this->path,
+            'created_at' => $this->created_at,//->format('d/m/Y'),
+            'updated_at' => $this->updated_at,
         ];
     }
 }

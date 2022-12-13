@@ -33,7 +33,7 @@ No ubuntu 22.04, esse aquivo fica localizado em /etc/php/{8.x}/cli, onde {8.x} r
 
 para editar, basta digitar no terminal, com permissão elevada de superusuário:
 
-`sudo nano /etc/php/8.1/cli` ou `sudo gedit /etc/php/8.1/cli` para php 8.1
+`sudo nano /etc/php/8.1/cli/php.ini` ou `sudo gedit /etc/php/8.1/cli/php.ini` para php 8.1
 
 
 ## Composer
@@ -77,13 +77,14 @@ Iniciar o servidor (Server for development)
 
     php artisan serve
 
-Acessar via POST http://127.0.0.1:8000/api/login enviando as credenciais:
+Acessar via POST http://127.0.0.1:8000/api/login enviando as credenciais no corpo da requisição:
 
     {
-    	"email":"test@example.com"
+    	"email":"test@example.com",
     	"password": "password"
     }
+
 A resposta desta requisição trará um token (bearer token) que deverá ser usado em todas as requisições autenticadas.
 
 A rotas estão descritas no arquivo routes/api.php;
-Uma rota de exemplo é a GET http://127.0.0.1:8000/api/disciplines
+Uma rota de exemplo é a GET http://127.0.0.1:8000/api/disciplinas

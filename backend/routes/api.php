@@ -5,9 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\
 {
    RegisterController,
-   DisciplineController,
-   AugmentedObjectController,
-   RoomController
+   DisciplinaController,
+   Objeto3dController,
+   AulaController
 };
 
 /*
@@ -27,11 +27,21 @@ Route::post('login', [RegisterController::class, 'login']);
 Route::middleware('auth:api')->group(function () {
 
    Route::apiResources([
-      'disciplines' => DisciplineController::class,
-      'augmented_objects' => AugmentedObjectController::class,
-      'rooms' => RoomController::class,
+      'disciplinas' => DisciplinaController::class,
+      'objetos3d' => Objeto3dController::class,
+      'aulas' => AulaController::class,
    ]);
 
-   Route::get('augmented_objects/{augmented_object}/download', [AugmentedObjectController::class, 'download'])->name('augmented_objects.download');
+   Route::get('objetos3d/{objeto_3d}/download', [Objeto3dController::class, 'download'])->name('objetos3d.download');
+
+});
+
+//API ROUTES FOR APP MOBILE
+
+Route::prefix('mobile')->group(function () {
+
+   Route::get('/aulas/{aula_id}/objetos3d',[Objeto3dController::class, 'index']);
+   Route::get('/objetos3d/{objeto_3d}', [Objeto3dController::class, 'show']);
+   Route::get('/objetos3d/{objeto_3d}/download', [Objeto3dController::class, 'download'])->name('objetos3d.download');
 
 });

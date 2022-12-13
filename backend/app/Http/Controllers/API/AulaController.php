@@ -4,11 +4,11 @@ namespace App\Http\Controllers\API;
      
 use Illuminate\Http\Request;
 use App\Http\Controllers\API\BaseController as BaseController;
-use App\Models\Discipline;
+use App\Models\Aula;
 use Validator;
-use App\Http\Resources\DisciplineResource;
+use App\Http\Resources\AulaResource;
      
-class DisciplineController extends BaseController
+class AulaController extends BaseController
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +17,8 @@ class DisciplineController extends BaseController
      */
     public function index()
     {
-        $disciplines = Discipline::all();
-      
-        return $this->sendResponse(DisciplineResource::collection($disciplines), 'Disciplines retrieved successfully.');
+        $aulas = Aula::all();
+        return $this->sendResponse(AulaResource::collection($aulas), 'Aulas retrieved successfully.');
     }
     /**
      * Store a newly created resource in storage.
@@ -32,17 +31,17 @@ class DisciplineController extends BaseController
         $input = $request->all();
      
         $validator = Validator::make($input, [
-            'name' => 'required',
-            'initial' => 'required'
+            'codigo' => 'required',
+            'dono' => 'required'
         ]);
      
         if($validator->fails()){
             return $this->sendError('Validation Error.', $validator->errors());       
         }
      
-        $discipline = Discipline::create($input);
+        $aula = Aula::create($input);
      
-        return $this->sendResponse(new DisciplineResource($discipline), 'Discipline created successfully.');
+        return $this->sendResponse(new AulaResource($aula), 'Aula created successfully.');
     } 
    
     /**
@@ -53,13 +52,13 @@ class DisciplineController extends BaseController
      */
     public function show($id)
     {
-        $discipline = Discipline::find($id);
+        $aula = Aula::find($id);
     
-        if (is_null($discipline)) {
-            return $this->sendError('Discipline not found.');
+        if (is_null($aula)) {
+            return $this->sendError('Aula not found.');
         }
      
-        return $this->sendResponse(new DisciplineResource($discipline), 'Discipline retrieved successfully.');
+        return $this->sendResponse(new AulaResource($aula), 'Aula retrieved successfully.');
     }
     
     /**
@@ -69,24 +68,25 @@ class DisciplineController extends BaseController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Discipline $discipline)
+    public function update(Request $request, Aula $aula)
     {
         $input = $request->all();
      
         $validator = Validator::make($input, [
-            'name' => 'required',
-            'initial' => 'required'
+            'code' => 'required',
+            'owner' => 'required'
         ]);
      
         if($validator->fails()){
             return $this->sendError('Validation Error.', $validator->errors());       
         }
      
-        $discipline->name = $input['name'];
-        $discipline->initial = $input['initial'];
-        $discipline->save();
+        $aula->code = $input['code'];
+        $aula->owner = $input['owner'];
+        $aula->name = $input['name'];
+        $aula->save();
      
-        return $this->sendResponse(new DisciplineResource($discipline), 'Discipline updated successfully.');
+        return $this->sendResponse(new AulaResource($aula), 'Aula updated successfully.');
     }
    
     /**
@@ -95,10 +95,10 @@ class DisciplineController extends BaseController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Discipline $discipline)
+    public function destroy(Aula $aula)
     {
-        $discipline->delete();
+        $aula->delete();
      
-        return $this->sendResponse([], 'Discipline deleted successfully.');
+        return $this->sendResponse([], 'Aula deleted successfully.');
     }
 }
