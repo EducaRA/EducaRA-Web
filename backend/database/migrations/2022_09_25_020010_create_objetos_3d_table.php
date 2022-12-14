@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('path')->nullable();
             $table->integer('size')->default(0);
             $table->float('escala', 6, 2)->default(0.3);
+            $table->uuid('codigo');
             $table->string('extension')->nullable();
             $table->unsignedBigInteger('aula_id');
             $table->foreign('aula_id')->references('id')->on('aulas');
