@@ -4,7 +4,7 @@ namespace App\Http\Resources;
   
 use Illuminate\Http\Resources\Json\JsonResource;
   
-class AulaResource extends JsonResource
+class AulaResourceMobile extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -15,15 +15,15 @@ class AulaResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'id' => $this->id,
             'codigo' => $this->codigo,
             'nome' => $this->nome,
-            'dono' => array(
-                'nome' => $this->dono->name
-            ),
+            'dono' => $this->dono->name,
             'observacao' => $this->observacao,
-            'disciplina' => $this->disciplina,
             'turma' => $this->turma,
+            'disciplina' => array(
+                'nome'=>$this->disciplina->nome,
+                'sigla'=>$this->disciplina->sigla,
+            ),
             'objetos_3d'=> $this->objetos3d,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,

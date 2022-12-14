@@ -40,7 +40,7 @@ Route::middleware('auth:api')->group(function () {
 
 Route::prefix('mobile')->group(function () {
 
-   Route::get('/aulas/{aula_id}/objetos3d',[Objeto3dController::class, 'index']);
+   Route::get('/aulas/{codigo}',[AulaController::class, 'getAula']);
    Route::get('/objetos3d/{objeto_3d}', [Objeto3dController::class, 'show']);
    Route::get('/objetos3d/{objeto_3d}/download', [Objeto3dController::class, 'download'])->name('objetos3d.download');
 
