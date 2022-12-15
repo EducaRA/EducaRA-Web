@@ -130,7 +130,7 @@ class Objeto3dController extends BaseController
             return $this->sendError('Erro de Remoção', 'Não foi possível remover o arquivo', 400);
     }
 
-    public function download(Objeto3d $objeto3d)
+    public function download($objeto3d)
     {
         // Check if file exists in app/storage/file folder
         $path = 'app/' . $this->upload_folder . $objeto3d->id . '/' . $objeto3d->filehash . '.' . $objeto3d->extension;
@@ -146,10 +146,38 @@ class Objeto3dController extends BaseController
      *
      * @return \Illuminate\Http\Response
      */
-    public function getObjetos3d()
+    public function getObjeto3d($codigo)
     {
-        $objeto3ds = Objeto3d::all();
 
-        return $this->sendResponse(Objeto3dResource::collection($objeto3ds), '3dObjet retrieved successfully.');
+        if (is_null($codigo)) {
+            return $this->sendError('Código do Objeto 3D não informado');
+        }
+
+        $objeto3d = Objeto3d::where('codigo', $codigo)->get();
+
+        if (is_null($objeto3d)) {
+            return $this->sendError('Objeto 3D não encontrado.');
+        }
+
+        return $this->sendResponse(Objeto3dResource::collection($objeto3d), 'Objeto 3D obtido com sucesso');
+    }
+
+    public function downloadObjeto3d($codigo)
+    {
+        // Check if file exists in app/storage/file folder
+
+        if (is_null($codigo)) {
+            return $this->sendError('Código do Objeto 3D não informado');
+        }
+
+        $objeto3d = Objeto3d::where('codigo', $codigo)->get();
+
+        if (is_null($codigo)) {
+            return $this->sendError('Objeto 3D não encontrado');
+        }
+
+        $path = 'app/' . $this->upload_folder . $objeto3d->id . '/' . $objeto3d->filehash . '.' . $objeto3d->extension;
+        $file_path = storage_path($path);
+        return response()->download($file_path);
     }
 }
