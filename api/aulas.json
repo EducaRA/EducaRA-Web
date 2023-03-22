@@ -1,0 +1,25 @@
+
+{
+    "content": [
+        {
+            "nome": "Aula 01",
+            "disciplina_id": 1,
+            "disciplina_descricao": "Química",
+            "n_modelos": 4
+    
+        },
+        {
+            "nome": "Aula 02",
+            "disciplina_id": 1,
+            "disciplina_descricao": "Química",
+            "n_modelos": 4
+    
+        },
+        {
+            "nome": "Aula 03",
+            "disciplina_id": 1,
+            "disciplina_descricao": "Química",
+            "n_modelos": 4
+        }
+    ]
+}

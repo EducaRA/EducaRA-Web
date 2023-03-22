@@ -1,0 +1,46 @@
+{
+    "content": [
+            {
+                "id": 1,
+                "nome": "Matemática",
+                "descricao": "Funções",
+                "n_aulas": 5,
+                "img": "https://img.matematica/i.png"
+            },
+            {
+                "id": 2,
+                "nome": "Biologia",
+                "descricao": "Genética",
+                "n_aulas": 4,
+                "img": "https://img.bio/i.png"
+            },  
+            {
+                "id": 3,
+                "nome": "História",
+                "descricao": "Idade Média",
+                "n_aulas": 5,
+                "img": "https://img.his/i.png"
+            },
+            {
+                "id": 4,
+                "nome": "Física",
+                "descricao": "Movimento Retilíneo Uniforme",
+                "n_aulas": 3,
+                "img": "https://img.fis/i.png"
+            },
+            {
+                "id": 5,
+                "nome": "Literatura",
+                "descricao": "Arcadismo",
+                "n_aulas": 5,
+                "img": "https://img.lit/i.png"
+            },
+            {
+                "id": 6,
+                "nome": "Inglês",
+                "descricao": "Conversação básica",
+                "n_aulas": 5,
+                "img": "https://img.eng/i.png"
+            }
+        ]
+}

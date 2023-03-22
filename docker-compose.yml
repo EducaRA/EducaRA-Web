@@ -7,10 +7,9 @@ services:
       dockerfile: Dockerfile
     command: npm start
     ports:
-      - '8081:3000'
+      - '8000:3000'
     volumes:
       - './api:/usr/app'
-
   web:
     container_name: web
     build:

@@ -1,0 +1,31 @@
+{
+    "content": [
+                {
+                    "id": 1,
+                    "nome": "Acido Etanoico",
+                    "aula_id": 1,
+                    "aula_descricao": "Aula 01",
+                    "descricao": "Formúla: C3H6O",
+                    "url_remota": "http://localhost:8000/acido-etanoico.glb",
+                    "ultima_atualizacao_remota_iso_8601": "2019-03-28T15:14:19.000Z"
+                },
+                {  
+                    "id": 2,
+                    "nome": "Propanona",
+                    "aula_id": 1,
+                    "aula_descricao": "Aula 01",
+                    "descricao": "Formúla: C3H6O",
+                    "url_remota": "http://localhost:8000/propanona.glb",
+                    "ultima_atualizacao_remota_iso_8601": "2019-03-28T15:14:19.000Z"
+                },
+                {
+                    "id": 3,
+                    "nome": "Propanona",
+                    "aula_id": 1,
+                    "aula_descricao": "Aula 01",
+                    "descricao": "Formúla: C3H6O",
+                    "url_remota": "http://localhost:8000/propanona.glb",
+                    "ultima_atualizacao_remota_iso_8601": "2019-03-28T15:14:19.000Z"
+                }
+        ]
+}
